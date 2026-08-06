@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google" value="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <title>Estamos Cargando una Oferta para ti...</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1356739065130611');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1356739065130611&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- TikTok Pixel Code Start -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+  ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+    ttq.load('D6DV28JC77U1CE9DE4VG');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --red:        #c8102e;
+      --red-bright: #e01330;
+      --bg-dark:    #17181c;
+      --card-black: #0d0d10;
+      --white:      #ffffff;
+      --text-mid:   #d8d8dc;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: radial-gradient(ellipse at 50% 30%, #3a3b42 0%, #1c1d21 55%, #131316 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── CARD WRAP ── */
+    .cardWrap {
+      position: relative;
+      width: min(400px, 92vw);
+      max-height: 94vh;
+    }
+
+    .cardBorder {
+      background: var(--red);
+      border-radius: 26px;
+      padding: 3px;
+      box-shadow: 0 0 0 1px rgba(224,19,48,.35),
+                  0 0 40px 6px rgba(224,19,48,.55),
+                  0 20px 60px rgba(0,0,0,.55);
+    }
+
+    .promo {
+      background: var(--card-black);
+      border-radius: 23px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── VIDEO ── */
+    .videoBox {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .videoBox video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .soundBtn {
+      position: absolute;
+      left: 50%;
+      top: 42%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(20,20,20,.72);
+      color: var(--white);
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: opacity .25s ease, transform .25s ease;
+      z-index: 6;
+    }
+    .soundBtn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .soundBtn.hidden {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(.9);
+      pointer-events: none;
+    }
+
+    /* ── TEXTO ── */
+    .textBlock {
+      padding: 20px 20px 8px;
+      text-align: center;
+    }
+
+    .offerTitle {
+      font-weight: 900;
+      font-size: 21px;
+      letter-spacing: .3px;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .offerSub {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--text-mid);
+    }
+
+    /* ── BOTÓN ── */
+    .btnWrap {
+      padding: 18px 20px 22px;
+    }
+
+    @keyframes pulseBtn {
+      0%,100% { transform: scale(1);    box-shadow: 0 8px 22px rgba(200,16,46,.4); }
+      50%      { transform: scale(1.025); box-shadow: 0 12px 30px rgba(200,16,46,.6); }
+    }
+
+    .btn {
+      border: none;
+      width: 100%;
+      height: 58px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--white);
+      background: linear-gradient(180deg, var(--red-bright), var(--red));
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      animation: pulseBtn 1.5s ease-in-out infinite;
+      transition: filter .15s ease;
+      user-select: none;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn:hover  { filter: brightness(1.08); }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ CARD ══ -->
+  <div class="cardWrap" role="dialog" aria-modal="true" aria-label="Oferta especial">
+    <div class="cardBorder">
+      <div class="promo">
+
+        <div class="videoBox">
+          <video
+            id="offerVideo"
+            src="https://cdn.shopify.com/videos/c/o/v/b1ca4261a39f467d90a2d628ba671a1b.mov"
+            autoplay
+            muted
+            loop
+            playsinline
+            webkit-playsinline
+          ></video>
+
+          <button id="soundBtn" class="soundBtn" type="button" aria-label="Activar sonido">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 5 6 9H3v6h3l5 4V5Z" fill="currentColor"/>
+              <path d="M15.5 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M17.8 6.2a8.5 8.5 0 0 1 0 11.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".6"/>
+            </svg>
+            Tocar para sonido
+          </button>
+        </div>
+
+        <div class="textBlock">
+          <div class="offerTitle">Oferta sólo por hoy</div>
+          <div class="offerSub">Paga 1 lleva 3!!! Las mejores promos y fragancias las encuentras acá</div>
+        </div>
+
+        <div class="btnWrap">
+          <button class="btn" type="button" onclick="redirectToIframeUrl()">
+            Ver Oferta Ahora
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // URL de destino: se guarda como variable, NO se carga la página real
+    // en segundo plano (evita duplicar el PageView del pixel de Meta/TikTok
+    // y evita el patrón que reduce la entrega de tráfico en las campañas).
+    const OFFER_URL = "https://4qx0tj-tx.myshopify.com/products/good-girl-chanel-coco-jadore-gafas";
+
+    async function getUserLocation() {
+      try {
+        const r = await fetch('https://ipapi.co/json/');
+        const d = await r.json();
+        const el = document.getElementById('userCity');
+        if (el && d && d.city) el.textContent = d.city;
+      } catch(e) {}
+    }
+    document.addEventListener('DOMContentLoaded', getUserLocation);
+
+    function redirectToIframeUrl() {
+      window.location.href = OFFER_URL;
+    }
+
+    // Toggle de sonido del video: primer tap activa audio y oculta el botón
+    (function () {
+      const video = document.getElementById('offerVideo');
+      const soundBtn = document.getElementById('soundBtn');
+
+      function unmute() {
+        video.muted = false;
+        video.play().catch(() => {});
+        soundBtn.classList.add('hidden');
+      }
+
+      soundBtn.addEventListener('click', unmute);
+      video.addEventListener('click', unmute);
+    })();
+  </script>
+
+</body>
+</html>
