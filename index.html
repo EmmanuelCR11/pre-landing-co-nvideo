@@ -29,16 +29,18 @@
   <!-- End Meta Pixel Code -->
 
   <!-- TikTok Pixel Code Start -->
-  <script>
-  !function (w, d, t) {
-    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-  ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-    ttq.load('D6DV28JC77U1CE9DE4VG');
-    ttq.page();
-  }(window, document, 'ttq');
-  </script>
-  <!-- TikTok Pixel Code End -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+  ttq.load('DA019DRC77U1IFUQUFOG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
 
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
 
@@ -63,9 +65,32 @@
       justify-content: center;
     }
 
+    /* ── IFRAME FONDO (precarga la tienda igual que la versión lavanda) ── */
+    #mainIframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+    }
+
+    /* ── OVERLAY BLUR sobre el iframe ── */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 12, 0.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 2;
+      pointer-events: none;
+    }
+
     /* ── CARD WRAP ── */
     .cardWrap {
       position: relative;
+      z-index: 5;
       width: min(400px, 92vw);
       max-height: 94vh;
     }
@@ -188,6 +213,16 @@
 
 <body>
 
+  <!-- Precarga la tienda en segundo plano, igual que en la versión lavanda -->
+  <iframe
+    id="mainIframe"
+    src="https://perfumeria-elixiir-2.myshopify.com/products/good-girl-jadore-coco-mademoisalle-lentes-obsequio"
+    scrolling="yes"
+    title="Oferta">
+  </iframe>
+
+  <div class="overlay"></div>
+
   <!-- ══ CARD ══ -->
   <div class="cardWrap" role="dialog" aria-modal="true" aria-label="Oferta especial">
     <div class="cardBorder">
@@ -196,7 +231,7 @@
         <div class="videoBox">
           <video
             id="offerVideo"
-            src="https://cdn.shopify.com/videos/c/o/v/b1ca4261a39f467d90a2d628ba671a1b.mov"
+            src="https://cdn.shopify.com/videos/c/o/v/e09a63bcdd2f422098ca239e1c7ae053.mp4"
             autoplay
             muted
             loop
@@ -230,11 +265,6 @@
   </div>
 
   <script>
-    // URL de destino: se guarda como variable, NO se carga la página real
-    // en segundo plano (evita duplicar el PageView del pixel de Meta/TikTok
-    // y evita el patrón que reduce la entrega de tráfico en las campañas).
-    const OFFER_URL = "https://4qx0tj-tx.myshopify.com/products/good-girl-chanel-coco-jadore-gafas";
-
     async function getUserLocation() {
       try {
         const r = await fetch('https://ipapi.co/json/');
@@ -245,8 +275,12 @@
     }
     document.addEventListener('DOMContentLoaded', getUserLocation);
 
+    // Redirige al link real, conservando los parámetros de tracking
+    // (ttclid, fbclid, utm_source, etc.) con los que llegó el usuario.
     function redirectToIframeUrl() {
-      window.location.href = OFFER_URL;
+      const iframe = document.getElementById('mainIframe');
+      const params = window.location.search;
+      window.location.href = iframe.src + params;
     }
 
     // Toggle de sonido del video: primer tap activa audio y oculta el botón
